@@ -36,6 +36,6 @@ unit("km") = 1000*unit("m");
 % temperature
 unit("K") = 1.;
 
-% temperature
-unit("g") = 1.;
-unit("kg") = 1000*unit("g");
+% mass
+unit("kg") = 1.;
+unit("g") = unit("kg")*1000;
