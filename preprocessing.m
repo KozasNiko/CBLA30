@@ -66,17 +66,17 @@ stopt  = min([Supply.Timeinfo.End, Demand.Timeinfo.End]);
 %% System parameters
 
 % transport from supply
-vFluidSupplyTransport = 5*unit("m")/unit("s");
-dFluidSupplyTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m");
-shcFluidSupplyTransport = 4.184*unit("J")/(unit("K")*unit("g"));   % PLACEHOLDER specific heat capacity of transport fluid
-tFluidSupplyTransport = 273*unit("K");
-tSurroundingsSupplyTransport = 273*unit("K");
-tPipeSupplyTransport = 10*unit("mm");
-irPipeSupplyTransport = 20*unit("mm");
-l1PipeSupplyTransport = 30*unit("m");                               % PLACEHOLDER length of pipe from panels to storage
-l2PipeSupplyTransport = 30*unit("m");                               % PLACEHOLDER length of pipe from storage to panels
-tcPipeSupplyTransport = 50000*unit("W")/(unit("m")*unit("K"));     % PLACEHOLDER thermal conductivity of pipe
-ccSurroundingsSupplyTransport = 50000*unit("W")/(unit("m")*unit("K"));     % PLACEHOLDER thermal conductivity of pipe
+vFluidSupplyTransport = 5*unit("m")/unit("s");                         % PLACEHOLDER velocity of transport fluid
+dFluidSupplyTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHOLDER density of transport fluid
+shcFluidSupplyTransport = 4.184*unit("J")/(unit("K")*unit("g"));       % PLACEHOLDER specific heat capacity of transport fluid
+tFluidSupplyTransport = 273*unit("K");                                 % PLACEHOLDER initial temperature of the transport fluid
+tSurroundingsSupplyTransport = 273*unit("K");                          % PLACEHOLDER (constant) temperature of the environment
+tPipeSupplyTransport = 10*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
+irPipeSupplyTransport = 20*unit("mm");                                 % PLACEHOLDER internal radius of the pipes
+l1PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from panels to storage
+l2PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from storage to panels
+tcPipeSupplyTransport = 50000*unit("W")/(unit("m")*unit("K"));         % PLACEHOLDER thermal conductivity of pipe
+ccSurroundingsSupplyTransport = 50000*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
 
 % injection system
 aInjection = 0.1; % Dissipation coefficient
@@ -91,7 +91,4 @@ bStorage        = 0/unit("s");  % Storage dissipation coefficient
 aExtraction = 1-0.337; % Dissipation coefficient
 
 % transport to demand
-lPipeDemandTransport = 30*unit("m");
-tcPipeDTransport = 50000*unit("W")/(unit("m")*unit("K"));
-shcFluidDemandTransport = 4.184*unit("J")/(unit("K")*unit("g")); % PLACEHOLDER specific heat capacity of transport fluid
-aDemandTransport = 0.01; % PLACEHOLDER Dissipation coefficient                                      % PLACEHOLDER Dissipation coefficient
+aDemandTransport = 0.01; % Dissipation coefficient
