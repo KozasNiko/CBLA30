@@ -71,15 +71,16 @@ dFluidSupplyTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHO
 shcFluidSupplyTransport = 4.184*unit("J")/(unit("K")*unit("g"));       % PLACEHOLDER specific heat capacity of transport fluid
 tFluidSupplyTransport = 273*unit("K");                                 % PLACEHOLDER initial temperature of the transport fluid
 tSurroundingsSupplyTransport = 273*unit("K");                          % PLACEHOLDER (constant) temperature of the environment
-tPipeSupplyTransport = 10*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
+tPipeSupplyTransport = 20*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
 irPipeSupplyTransport = 20*unit("mm");                                 % PLACEHOLDER internal radius of the pipes
 l1PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from panels to storage
 l2PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from storage to panels
-tcPipeSupplyTransport = 50000*unit("W")/(unit("m")*unit("K"));         % PLACEHOLDER thermal conductivity of pipe
+tcPipeSupplyTransport = 50*unit("W")/(unit("m")*unit("K"));         % PLACEHOLDER thermal conductivity of pipe
 ccSurroundingsSupplyTransport = 50000*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
 
 % injection system
 aInjection = 0.1; % Dissipation coefficient
+rInjection = 0.1; % Remaining energy coefficient
 
 % storage system
 EStorageMax     = 3388.9.*unit("kWh"); % Maximum energy
