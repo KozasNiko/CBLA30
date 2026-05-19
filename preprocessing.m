@@ -103,4 +103,13 @@ tStartStorage         = 298*unit("K"); % PLACEHOLDER starting temperature of sto
 aExtraction = 1-0.337; % Dissipation coefficient
 
 % transport to demand
-aDemandTransport = 0.01; % Dissipation coefficient
+vFluidDemandTransport = 5*unit("m")/unit("s");                         % PLACEHOLDER velocity of transport fluid
+dFluidDemandTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHOLDER density of transport fluid
+shcFluidDemandTransport = 4.184*unit("J")/(unit("K")*unit("g"));       % PLACEHOLDER specific heat capacity of transport fluid
+tFluidDemandTransport = 298*unit("K");                                 % PLACEHOLDER initial temperature of the transport fluid
+tSurroundingsDemandTransport = 298*unit("K");                          % PLACEHOLDER (constant) temperature of the environment
+tPipeDemandTransport = 20*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
+irPipeDemandTransport = 20*unit("mm");                                 % PLACEHOLDER internal radius of the pipes
+lPipeDemandTransport = 30*unit("m");                                   % PLACEHOLDER length of pipe between energy input into pipes and demand
+tcPipeDemandTransport = 50*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of pipe
+ccSurroundingsDemandTransport = 50000*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
