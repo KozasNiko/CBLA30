@@ -118,7 +118,7 @@ tcPipeDemandTransport = 50*unit("W")/(unit("m")*unit("K"));            % PLACEHO
 tcInsDemandTransport = 0.04*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of insulation
 ccSurroundingsDemandTransport = 20*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
 
-pdDemandTransport = 400; % PLACEHOLDER V potential difference of cable
+alphaDemandTransport = 0.01; % Factor by which the potential difference is increased to provide a more stable system
 lDemandTransport = 30*unit("m"); % PLACEHOLDER length of cable
 rplDemandTransport = 0.00049; % PLACEHOLDER ohm/m resistance per unit length of cable
 
