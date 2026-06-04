@@ -67,19 +67,19 @@ stopt  = min([Supply.Timeinfo.End, Demand.Timeinfo.End]);
 %% System parameters
 
 % transport from supply
-vFluidSupplyTransport = 5*unit("m")/unit("s");                         % PLACEHOLDER velocity of transport fluid
-dFluidSupplyTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHOLDER density of transport fluid
-shcFluidSupplyTransport = 4184*unit("J")/(unit("K")*unit("kg"));       % PLACEHOLDER specific heat capacity of transport fluid
-tFluidSupplyTransport = 298*unit("K");                                 % PLACEHOLDER initial temperature of the transport fluid
-tSurroundingsSupplyTransport = 298*unit("K");                          % PLACEHOLDER (constant) temperature of the environment
-tPipeSupplyTransport = 20*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
+vFluidSupplyTransport = 5*unit("m")/unit("s");                         %  velocity of transport fluid
+dFluidSupplyTransport = 997*unit("kg")/unit("m")/unit("m")/unit("m"); %  density of transport fluid
+shcFluidSupplyTransport = 4.184*unit("J")/(unit("K")*unit("g"));       %  specific heat capacity of transport fluid
+tFluidSupplyTransport = 343.15*unit("K");                              % Final initial temperature of the transport fluid
+tSurroundingsSupplyTransport = 296.15*unit("K");                       % Final (constant) temperature of the environment
+tPipeSupplyTransport = 20*unit("mm");                                  %  wall thickness of pipes
 tInsSupplyTransport = 20*unit("mm");                                  % PLACEHOLDER radial thickness of insulation
-irPipeSupplyTransport = 20*unit("mm");                                 % PLACEHOLDER internal radius of the pipes
-l1PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from panels to storage
-l2PipeSupplyTransport = 30*unit("m");                                  % PLACEHOLDER length of pipe from storage to panels
-tcPipeSupplyTransport = 50*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of pipe
-tcInsSupplyTransport = 0.04*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of insulation
-ccSurroundingsSupplyTransport = 20*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
+irPipeSupplyTransport = 20*unit("mm");                                 %  internal radius of the pipes
+l1PipeSupplyTransport = 35*unit("m");                                  % Final length of pipe from panels to storage
+l2PipeSupplyTransport = 35*unit("m");                                  % Final length of pipe from storage to panels
+tcPipeSupplyTransport = 50*unit("W")/(unit("m")*unit("K"));            %  thermal conductivity of pipe
+tcInsSupplyTransport = 0.04*unit("W")/(unit("m")*unit("K"));            %  PLACEHOLDER thermal conductivity of insulation
+ccSurroundingsSupplyTransport = 50000*unit("W")/(unit("m")*unit("K")); %  convective heat transfer coefficient of surroundings
 
 % injection system
 aInjection = 0.1; % Dissipation coefficient
@@ -88,35 +88,35 @@ rInjection = 0.1; % Remaining energy coefficient
 % storage system
 
 % cylindrical storage tank:
-rStorage              = 0.5*unit("m"); % PLACEHOLDER inner radius of storage tank
-lStorage              = 3*unit("m"); % PLACEHOLDER inner length of storage tank
-tcStorage             = 50*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER thermal conductivity of tank
-ccSurroundingsStorage = 20*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surrounding fluid
-eStorage              = 0.06;                                  % PLACEHOLDER emissivity of tank
-tStorage              = 100*unit("mm");                        % PLACEHOLDER wall thickness of tank
-dStorageMaterial      = 5000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHOLDER density of energy storage material
-shcStorageMaterial    = 4184*unit("J")/(unit("K")*unit("kg")); % PLACEHOLDER specific heat capacity of storage material
-tSurroundingsStorage  = 298*unit("K"); % PLACEHOLDER surrounding temperature of storage
-tStartStorage         = 298*unit("K"); % PLACEHOLDER Initialing temperature of storage material
-tMaxStorage = 363.15*unit("K"); % PLACEHOLDER maximum storage temperature
-tMinStorage = 273.15*unit("K"); % PLACEHOLDER minimum storage temperature
+rStorage              = 1.088*unit("m"); % inner radius of storage tank
+lStorage              = 2.176*unit("m"); %  inner length of storage tank
+tcStorage             = 0.1045*unit("W")/(unit("m")*unit("K")); % thermal conductivity of tank
+ccSurroundingsStorage = 11.4*unit("W")/(unit("m")*unit("K")); %  convective heat transfer coefficient of surrounding fluid
+eStorage              = 0.90;                                  %  Emissivity of tank
+tStorage              = 350*unit("mm");                        % wall thickness of tank
+dStorageMaterial      = 3900*unit("kg")/unit("m")/unit("m")/unit("m"); %  density of energy storage material
+shcStorageMaterial    = 1000*unit("J")/(unit("K")*unit("kg")); %  specific heat capacity of storage material
+tSurroundingsStorage  = 293*unit("K"); %  surrounding temperature of storage
+tStartStorage         = 473.15*unit("K"); %  Initialing temperature of storage material
+tMaxStorage = 550.15*unit("K"); %  maximum storage temperature
+tMinStorage = 373.15*unit("K"); %  minimum storage temperature
 
 % extraction system
 aExtraction = 1-0.337; % Dissipation coefficient
 
 % transport to demand
-vFluidDemandTransport = 5*unit("m")/unit("s");                         % PLACEHOLDER velocity of transport fluid
-dFluidDemandTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); % PLACEHOLDER density of transport fluid
-shcFluidDemandTransport = 4184*unit("J")/(unit("K")*unit("kg"));       % PLACEHOLDER specific heat capacity of transport fluid
-tFluidDemandTransport = 298*unit("K");                                 % PLACEHOLDER initial temperature of the transport fluid
-tSurroundingsDemandTransport = 298*unit("K");                          % PLACEHOLDER (constant) temperature of the environment
-tPipeDemandTransport = 20*unit("mm");                                  % PLACEHOLDER wall thickness of pipes
-tInsDemandTransport = 20*unit("mm");                                  % PLACEHOLDER radial thickness of insulation
-irPipeDemandTransport = 20*unit("mm");                                 % PLACEHOLDER internal radius of the pipes
-lPipeDemandTransport = 30*unit("m");                                   % PLACEHOLDER length of pipe between energy input into pipes and demand
-tcPipeDemandTransport = 50*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of pipe
-tcInsDemandTransport = 0.04*unit("W")/(unit("m")*unit("K"));            % PLACEHOLDER thermal conductivity of insulation
-ccSurroundingsDemandTransport = 20*unit("W")/(unit("m")*unit("K")); % PLACEHOLDER convective heat transfer coefficient of surroundings
+vFluidDemandTransport = 0.67*unit("m")/unit("s");                        %  velocity of transport fluid
+dFluidDemandTransport = 1000*unit("kg")/unit("m")/unit("m")/unit("m"); %  density of transport fluid
+shcFluidDemandTransport = 4184*unit("J")/(unit("K")*unit("kg"));       %  specific heat capacity of transport fluid
+tFluidDemandTransport = 343*unit("K");                                 %  initial temperature of the transport fluid
+tSurroundingsDemandTransport = 293*unit("K");                          % (constant) temperature of the environment
+tPipeDemandTransport = 10*unit("mm");                                  %   wall thickness of pipes
+tInsDemandTransport = 150*unit("mm");                                   % tInsDemandTransport radial thickness of insulation
+irPipeDemandTransport = 20*unit("mm");                                 %  internal radius of the pipes
+lPipeDemandTransport = 35*unit("m");                                   %  length of pipe between energy input into pipes and demand
+tcPipeDemandTransport = 50*unit("W")/(unit("m")*unit("K"));            %  thermal conductivity of pipe
+tcInsDemandTransport = 0.04*unit("W")/(unit("m")*unit("K"));            %  thermal conductivity of insulation
+ccSurroundingsDemandTransport = 6.41*unit("W")/(unit("m")*unit("K")); %  convective heat transfer coefficient of surroundings
 
 alphaDemandTransport = 0.01; % Factor by which the potential difference is increased to provide a more stable system
 lDemandTransport = 30*unit("m"); % PLACEHOLDER length of cable
@@ -127,8 +127,8 @@ rplDemandTransport = 0.00049; % PLACEHOLDER ohm/m resistance per unit length of 
 aElectricityDemand = 0.7; % Ratio of the demand that needs to be met in electricity, rest is heat
 
 %controller
-aElectricToThermal = 0.01; % PLACEHOLDER dissipation coefficient of converting from electric to thermal energy 
-aThermalToElectric = 0.01; % PLACEHOLDER dissipation coefficient of converting from thermal to electric energy 
+aElectricToThermal = 0.1; %  dissipation coefficient of converting from electric to thermal energy 
+aThermalToElectric = 0.338; %  dissipation coefficient of converting from thermal to electric energy 
 
 
 
