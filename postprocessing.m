@@ -6,9 +6,9 @@ figure;
 
 %% Supply and demand
 subplot(2,2,1);
-plot(tout/unit("day"), PSupply/unit("W"));
+plot(tout/unit("day"), powerFromSupply/unit("W"));
 hold on;
-plot(tout/unit("day"), PDemand/unit("W"));
+plot(tout/unit("day"), powerToDemand/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Supply and demand');
@@ -18,7 +18,7 @@ legend("Supply","Demand");
 
 %% Stored energy
 subplot(2,2,2);
-plot(tout/unit("day"), EStorage/unit("J"));
+plot(tout/unit("day"), energySTO/unit("J"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Storage');
@@ -27,7 +27,7 @@ ylabel('Energy [J]');
 
 %% Energy losses
 subplot(2,2,3);
-plot(tout/unit("day"), D/unit("W"));
+plot(tout/unit("day"), diss/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Losses');
@@ -49,7 +49,7 @@ legend("Sell","Buy");
 figure;
 %% Controller energy conversion dissipation
 subplot(2,2,1);
-plot(tout/unit("day"), DController/unit("W"));
+plot(tout/unit("day"), dissCON/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Controller energy conversion dissipation');
@@ -58,7 +58,7 @@ ylabel('Power [W]');
 
 %% Energy transport dissipation
 subplot(2,2,2);
-plot(tout/unit("day"), DTransport/unit("W"));
+plot(tout/unit("day"), dissTRA/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Energy transport dissipation');
@@ -67,7 +67,7 @@ ylabel('Power [W]');
 
 %% Energy storage dissipation
 subplot(2,2,3);
-plot(tout/unit("day"), DStorage/unit("W"));
+plot(tout/unit("day"), dissSTO/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Energy storage dissipation');
@@ -76,7 +76,7 @@ ylabel('Power [W]');
 
 %% dT thermal demand transport
 subplot(2,2,4);
-plot(tout/unit("day"), dTThermalDemandTransport/unit("K"));
+plot(tout/unit("day"), deltaTempToTTD/unit("K"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Temperature range of thermal demand transport');
@@ -86,13 +86,13 @@ ylabel('Temperature [K]');
 %% Pie charts
 
 % integrate the power signals in time
-EfromSupplyTransport = trapz(tout, PfromSupplyTransport);
-EtoDemandTransport   = trapz(tout, PtoDemandTransport);
+EfromSupplyTransport = trapz(tout, powerFromTFS);
+EtoDemandTransport   = trapz(tout, powerToTTD);
 ESell                = trapz(tout, PSell);
 EBuy                 = trapz(tout, PBuy);
-EtoInjection         = trapz(tout, PtoInjection);
-EfromExtraction      = trapz(tout, PfromExtraction);
-EStorageDissipation  = trapz(tout, DStorage);
+EtoInjection         = trapz(tout, powerToINJ);
+EfromExtraction      = trapz(tout, powerFromEXT);
+EStorageDissipation  = trapz(tout, dissSTO);
 EDirect              = EfromSupplyTransport - ESell - EtoInjection;
 ESurplus             = EtoInjection-EfromExtraction-EStorageDissipation;
 
