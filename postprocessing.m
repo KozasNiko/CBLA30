@@ -46,6 +46,43 @@ xlabel('Time [day]');
 ylabel('Power [W]');
 legend("Sell","Buy");
 
+figure;
+%% Controller energy conversion dissipation
+subplot(2,2,1);
+plot(tout/unit("day"), DController/unit("W"));
+xlim([0 tout(end)/unit("day")]);
+grid on;
+title('Controller energy conversion dissipation');
+xlabel('Time [day]');
+ylabel('Power [W]');
+
+%% Energy transport dissipation
+subplot(2,2,2);
+plot(tout/unit("day"), DTransport/unit("W"));
+xlim([0 tout(end)/unit("day")]);
+grid on;
+title('Energy transport dissipation');
+xlabel('Time [day]');
+ylabel('Power [W]');
+
+%% Energy storage dissipation
+subplot(2,2,3);
+plot(tout/unit("day"), DStorage/unit("W"));
+xlim([0 tout(end)/unit("day")]);
+grid on;
+title('Energy storage dissipation');
+xlabel('Time [day]');
+ylabel('Power [W]');
+
+%% dT thermal demand transport
+subplot(2,2,4);
+plot(tout/unit("day"), dTThermalDemandTransport/unit("K"));
+xlim([0 tout(end)/unit("day")]);
+grid on;
+title('Temperature range of thermal demand transport');
+xlabel('Time [day]');
+ylabel('Temperature [K]');
+
 %% Pie charts
 
 % integrate the power signals in time
