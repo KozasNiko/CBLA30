@@ -26,9 +26,9 @@ stopt  = min([supPower.Timeinfo.End, demPower.Timeinfo.End]);
 %% System parameters
 
 % transport from supply (TFS)
-TFS_VOLTAGE = 400; % PLACEHOLDER V operating voltage of the transport system
-TFS_LENGTH = 35*unit("m"); % length of cable
-TFS_RES_PER_LENGTH = 0.00049; % PLACEHOLDER ohm/m resistance per unit length of cable
+TFS_VOLTAGE = 400; %  V operating voltage of the transport system
+TFS_LENGTH = 28.6*unit("m"); % length of cable
+TFS_RES_PER_LENGTH = 0.0007; %  ohm/m resistance per unit length of cable
 
 % injection system (INJ)
 INJ_DISS_COEFF = 0.1; % PLACEHOLDER Dissipation coefficient
@@ -44,11 +44,11 @@ STO_DENSITY      = 3900*unit("kg")/(unit("m")^3); %  density of energy storage m
 STO_HEAT_CAPACITY = 1000*unit("J")/(unit("K")*unit("kg")); %  specific heat capacity of storage material
 STO_TEMP_ENV  = 293*unit("K"); %  surrounding temperature of storage
 STO_TEMP_INIT         = 473.15*unit("K"); %  Initial temperature of storage material
-STO_TEMP_MAX = 550.15*unit("K"); %  maximum storage temperature
+STO_TEMP_MAX = 586.15*unit("K"); %  maximum storage temperature
 STO_TEMP_MIN = 373.15*unit("K"); %  minimum storage temperature
 
 % extraction system (EXT)
-EXT_DISS_COEFF = 1-0.337; % Dissipation coefficient
+EXT_DISS_COEFF = 1-0.341; % Dissipation coefficient
 
 % transport to demand (TTD)
 TTD_FLUID_VELOCITY = 0.67*unit("m")/unit("s");                        %  velocity of transport fluid
@@ -64,7 +64,7 @@ TTD_INS_COND = 0.04*unit("W")/(unit("m")*unit("K"));            %  thermal condu
 TTD_CONV_COEFF_ENV = 6.41*unit("W")/(unit("m")^2*unit("K")); %  convective heat transfer coefficient of surroundings
 
 TTD_ALPHA = 0.01; % Factor by which the potential difference is increased to provide a more stable system
-TTD_RES_PER_LENGTH = 0.00049; % PLACEHOLDER ohm/m resistance per unit length of cable
+TTD_RES_PER_LENGTH = 0.0007; %  ohm/m resistance per unit length of cable
 
 %demand (DEM)
 DEM_ENERGY_RATIO = 0.7; % Ratio of the demand that needs to be met in electricity, rest is heat
