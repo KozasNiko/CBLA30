@@ -36,9 +36,9 @@ ylabel('Dissipation rate [W]');
 
 %% Load balancing
 subplot(2,2,4);
-plot(tout/unit("day"), PSell/unit("W"));
+plot(tout/unit("day"), powerSold/unit("W"));
 hold on;
-plot(tout/unit("day"), PBuy/unit("W"));
+plot(tout/unit("day"), powerBought/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
 title('Load balancing');
@@ -86,27 +86,27 @@ ylabel('Temperature [K]');
 %% Pie charts
 
 % integrate the power signals in time
-EfromSupplyTransport = trapz(tout, powerFromTFS);
-EtoDemandTransport   = trapz(tout, powerToTTD);
-ESell                = trapz(tout, PSell);
-EBuy                 = trapz(tout, PBuy);
-EtoInjection         = trapz(tout, powerToINJ);
-EfromExtraction      = trapz(tout, powerFromEXT);
-EStorageDissipation  = trapz(tout, dissSTO);
-EDirect              = EfromSupplyTransport - ESell - EtoInjection;
-ESurplus             = EtoInjection-EfromExtraction-EStorageDissipation;
+energyFromTFS = trapz(tout, powerFromTFS);
+energyToTTD   = trapz(tout, powerToTTD);
+energySold    = trapz(tout, powerSold);
+energyBought  = trapz(tout, powerBought);
+energyToINJ   = trapz(tout, powerToINJ);
+energyFromEXT = trapz(tout, powerFromEXT);
+dissEnergySTO = trapz(tout, dissSTO);
+energyDirect  = energyFromTFS - energySold - energyToINJ;
+energySurplus = energyToINJ-energyFromEXT-dissEnergySTO;
 
 figure;
 tiles = tiledlayout(1,2);
 
 ax = nexttile;
-pie(ax, [EDirect, EtoInjection, ESell]/EfromSupplyTransport);
+pie(ax, [energyDirect, energyToINJ, energySold]/energyFromTFS);
 lgd = legend({"Direct to demand", "To storage", "Sold"});
 lgd.Layout.Tile = "south";
-title(sprintf("Received energy %3.2e [J]", EfromSupplyTransport/unit('J')));
+title(sprintf("Received energy %3.2e [J]", energyFromTFS/unit('J')));
 
 ax = nexttile;
-pie(ax, [EDirect, EfromExtraction, EBuy]/EtoDemandTransport);
+pie(ax, [energyDirect, energyFromEXT, energyBought]/energyToTTD);
 lgd = legend({"Direct from supply", "From storage", "Bought"});
 lgd.Layout.Tile = "south";
-title(sprintf("Delivered energy %3.2e [J]", EtoDemandTransport/unit('J')));
+title(sprintf("Delivered energy %3.2e [J]", energyToTTD/unit('J')));
