@@ -31,7 +31,7 @@ TFS_LENGTH = 28.6*unit("m"); % length of cable
 TFS_RES_PER_LENGTH = 0.0007; %  ohm/m resistance per unit length of cable
 
 % injection system (INJ)
-INJ_DISS_COEFF = 0.1; % PLACEHOLDER Dissipation coefficient
+INJ_DISS_COEFF = 0.02; % PLACEHOLDER Dissipation coefficient
 
 % storage system (STO)
 STO_INNER_RADIUS              = 1.088*unit("m"); % inner radius of storage tank
