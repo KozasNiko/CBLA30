@@ -52,7 +52,7 @@ subplot(2,2,1);
 plot(tout/unit("day"), dissCON/unit("W"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
-title('Controller energy conversion dissipation');
+title('Controller energy conversion dissipation (electric->thermal)');
 xlabel('Time [day]');
 ylabel('Power [W]');
 
@@ -76,12 +76,12 @@ ylabel('Power [W]');
 
 %% dT thermal demand transport
 subplot(2,2,4);
-plot(tout/unit("day"), deltaTempToTTD/unit("K"));
+plot(tout/unit("day"), tempRelativeToEnvToTTD/unit("K"));
 xlim([0 tout(end)/unit("day")]);
 grid on;
-title('Temperature range of thermal demand transport');
+title('Input temperature of transport to demand relative to surrounding temperature');
 xlabel('Time [day]');
-ylabel('Temperature [K]');
+ylabel('Relative temperature [K]');
 
 %% Pie charts
 
@@ -103,10 +103,10 @@ ax = nexttile;
 pie(ax, [energyDirect, energyToINJ, energySold]/energyFromTFS);
 lgd = legend({"Direct to demand", "To storage", "Sold"});
 lgd.Layout.Tile = "south";
-title(sprintf("Received energy %3.2e [J]", energyFromTFS/unit('J')));
+title(sprintf("Energy output of transport from supply %3.2e [J]", energyFromTFS/unit('J')));
 
 ax = nexttile;
 pie(ax, [energyDirect, energyFromEXT, energyBought]/energyToTTD);
 lgd = legend({"Direct from supply", "From storage", "Bought"});
 lgd.Layout.Tile = "south";
-title(sprintf("Delivered energy %3.2e [J]", energyToTTD/unit('J')));
+title(sprintf("Energy input into transport to demand %3.2e [J]", energyToTTD/unit('J')));
