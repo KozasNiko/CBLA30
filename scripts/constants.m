@@ -33,9 +33,18 @@ unit("m") = 1.;
 unit("mm") = unit("m")/1000;
 unit("km") = 1000*unit("m");
 
+% volume
+unit("m2") = unit("m") * unit("m");
+unit("m3") = unit("m") * unit("m") * unit("m");
+
 % temperature
 unit("K") = 1.;
 
 % mass
 unit("kg") = 1.;
 unit("g") = unit("kg")/1000;
+
+% electrical
+unit("A") = 1.;
+unit("V") = unit("W") / unit("A");
+unit("ohm") = unit("V") / unit("A");
