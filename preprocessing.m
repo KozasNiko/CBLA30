@@ -60,7 +60,7 @@ TTD_LENGTH              = 35*unit("m");                           % [m]
 TTD_WALL_COND           = 50*unit("W")/(unit("m")*unit("K"));     % [W/mK]
 TTD_INS_COND            = 0.04*unit("W")/(unit("m")*unit("K"));   % [W/mK]
 TTD_CONV_COEFF_ENV      = 6.41*unit("W")/(unit("m2")*unit("K"));  % [W/m^2K]
-TTD_ALPHA               = 0.01;                                   % [-]
+TTD_ALPHA               = 0.1;                                    % [-]
 TTD_RES_PER_LENGTH      = 0.0007*unit("ohm")/unit("m");           % [ohm/m]
 
 %demand (DEM)
